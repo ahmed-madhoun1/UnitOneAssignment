@@ -3,11 +3,13 @@
 
     <item
         android:id="@+id/home"
-        android:title="Flight" />
+        android:title="Flight"
+        android:icon="@drawable/ic_flight" />
 
     <item
         android:id="@+id/Search"
-        android:title="Hotel" />
+        android:title="Hotel"
+        android:icon="@drawable/ic_hotel"/>
 
     <item
         android:id="@+id/placeholder"
@@ -15,10 +17,12 @@
 
     <item
         android:id="@+id/Profile"
-        android:title="Search" />
+        android:title="Search"
+        android:icon="@drawable/ic_search"/>
 
     <item
         android:id="@+id/Settings"
-        android:title="Settings" />
+        android:title="Settings"
+        android:icon="@drawable/ic_setting"/>
 
 </menu>

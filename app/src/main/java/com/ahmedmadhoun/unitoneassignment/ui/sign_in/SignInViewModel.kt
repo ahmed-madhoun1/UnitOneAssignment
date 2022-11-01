@@ -20,14 +20,12 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @HiltViewModel
-class SignInViewModel @Inject constructor(
-    val repository: CitiesRepository
-) : ViewModel() {
+class SignInViewModel @Inject constructor() : ViewModel() {
 
     private lateinit var _verificationId: String
     private lateinit var code: String
     private val SAFE_BROWSING_API_KEY = "AIzaSyBBkIrSxfXjxaOmjVmGattuLOMR0kCc8ls"
-    var url = "www.google.com"
+    private var url = "www.google.com"
     private val auth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
@@ -66,12 +64,8 @@ class SignInViewModel @Inject constructor(
     }
 
     fun sendVerificationCode(activity: Activity, phoneNumber: String) {
-        var number = phoneNumber
-//        if (phoneNumber.toCharArray()[0].equals("0")) {
-//            number = phoneNumber.substring(1)
-//        }
         val options = PhoneAuthOptions.newBuilder(auth)
-            .setPhoneNumber("+972567746416")
+            .setPhoneNumber("+970$phoneNumber")
             .setTimeout(60L, TimeUnit.SECONDS)
             .setActivity(activity)
             .setCallbacks(callbacks)

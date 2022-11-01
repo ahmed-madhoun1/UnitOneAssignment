@@ -2,18 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/signInFragment"
+    android:id="@+id/verfiy_code_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".ui.sign_in.SignInFragment">
+    tools:context=".ui.verfiy_code.VerfiyCodeFragment">
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/edit_text"
+        android:id="@+id/verification_code_edit_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/mobile_input_style"
+        android:hint="Verification Code"
+        android:inputType="phone"
+        android:padding="10dp" />
 
+    <Button
+        android:id="@+id/send_verification_code_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#15B5E0"
+        android:text="Verify"
+        android:textAllCaps="false" />
 
 
 </LinearLayout>

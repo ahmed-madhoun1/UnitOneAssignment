@@ -112,6 +112,8 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer-dash:2.18.1'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.1'
 
+    // Rounded Image
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 }
 
 // Hilt

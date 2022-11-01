@@ -22,55 +22,11 @@ class VerfiyCodeViewModel @Inject constructor(
     }
 
     private lateinit var _verificationId: String
-    private lateinit var code: String
-
-    fun sendVerificationCode(activity: Activity, phoneNumber: String) {
-        var number = phoneNumber
-//        if (phoneNumber.toCharArray()[0].equals("0")) {
-//            number = phoneNumber.substring(1)
-//        }
-        val options = PhoneAuthOptions.newBuilder(auth)
-            .setPhoneNumber("+972567746416")
-            .setTimeout(60L, TimeUnit.SECONDS)
-            .setActivity(activity)
-            .setCallbacks(callbacks)
-            .build()
-        PhoneAuthProvider.verifyPhoneNumber(options)
-    }
 
     fun verifyCode(activity: Activity, code: String) {
         if (::_verificationId.isInitialized) {
             val credential = PhoneAuthProvider.getCredential(_verificationId, code)
             signInWithPhoneAuthCredential(activity, credential)
-        }
-    }
-
-    private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-
-        override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-            code = credential.smsCode!!
-        }
-
-        override fun onVerificationFailed(e: FirebaseException) {
-            // This callback is invoked in an invalid request for verification is made,
-            // for instance if the the phone number format is not valid.
-            if (e is FirebaseAuthInvalidCredentialsException) {
-                Log.e("TAG", "FirebaseAuthInvalidCredentialsException: ${e.message}")
-                // Invalid request
-            } else if (e is FirebaseTooManyRequestsException) {
-                Log.e("TAG", "FirebaseTooManyRequestsException: ${e.message}")
-                // The SMS quota for the project has been exceeded
-            }
-
-            // Show a message and update the UI
-        }
-
-        override fun onCodeSent(
-            verificationId: String,
-            token: PhoneAuthProvider.ForceResendingToken
-        ) {
-            Log.e("TAG", "onCodeSent: ${verificationId}")
-            _verificationId = verificationId
         }
     }
 

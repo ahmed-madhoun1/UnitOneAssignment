@@ -11,23 +11,22 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edit_text"
+        android:hint="Mobile Number"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:inputType="phone"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:background="@drawable/mobile_input_style"
+        android:layout_height="50dp" />
 
     <Button
         android:id="@+id/sendVerficationCodeBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="50dp"
+        android:layout_margin="10dp"
         android:background="#15B5E0"
+        android:textAllCaps="false"
         android:text="Sign Up" />
-    <Button
-        android:id="@+id/btnVerifyCode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:background="#15B5E0"
-        android:text="verify code" />
 
 
 </LinearLayout>

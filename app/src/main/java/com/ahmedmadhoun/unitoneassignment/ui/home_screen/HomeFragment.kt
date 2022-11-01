@@ -10,6 +10,8 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +31,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val viewModel: HomeViewModel by viewModels()
     private var binding: FragmentHomeBinding? = null
+    private lateinit var navController: NavController
     lateinit var viewPagerAdapter: ViewPagerAdapter
 
     override fun onCreateView(
@@ -37,6 +40,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+
+        navController = findNavController()
+
         return binding!!.root
     }
 
@@ -52,15 +58,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding!!.bottomNavigationView.menu.getItem(2).isEnabled = false
 
         if (false) {
-            binding!!.signUpView.root.visibility = View.GONE
-            binding!!.adsView.root.visibility = View.VISIBLE
+            binding!!.signUpView.visibility = View.GONE
+            binding!!.adsView.visibility = View.VISIBLE
         } else {
-            binding!!.signUpView.root.visibility = View.VISIBLE
-            binding!!.adsView.root.visibility = View.GONE
+            binding!!.signUpView.visibility = View.VISIBLE
+            binding!!.adsView.visibility = View.GONE
         }
-        binding!!.signUpView.root.signUpBtn.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.main_activity, SignInFragment(), "SignIn Fragement").commit()
+
+        binding!!.signUpView.signUpBtn.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToSignInFragment2()
+            navController.navigate(action)
         }
         lifecycleScope.launch {
             viewModel.getCitiesStateFlow.collectLatest {
