@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1083732982485",
+    "project_id": "testandroid-fd8b3",
+    "storage_bucket": "testandroid-fd8b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083732982485:android:9b0786c3d45e33ae56c05c",
+        "android_client_info": {
+          "package_name": "com.ahmedmadhoun.unitoneassignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1083732982485-he2f27kp7r5ceka8jr7uhnqpravle3ud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBipvrbqvDkWFth5eAi5QXTSI1XryE1gj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1083732982485-he2f27kp7r5ceka8jr7uhnqpravle3ud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
